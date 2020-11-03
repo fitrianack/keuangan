@@ -13,10 +13,10 @@
         <!-- ============================================================== -->
         <div class="row page-titles">
             <div class="col-md-5 align-self-center">
-                <h3 class="text-themecolor">Halaman Edit Data Uang</h3>
+                <h3 class="text-themecolor">Halaman Show Data Keuangan</h3>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                    <li class="breadcrumb-item active">Halaman Edit Uang</li>
+                    <li class="breadcrumb-item active">Halaman Data Keuangan</li>
                 </ol>
             </div>
             <div class="col-md-7 align-self-center">
@@ -36,29 +36,54 @@
                 <div class="card">
                     <!-- Tab panes -->
                     <div class="card-body">
-                        <form class="form-horizontal form-material" method="post" action="/edituang/update/{{$uang->id}}">
-                            {{csrf_field()}}
-                            <div class="form-group">
-                                <label>Uang Masuk</label>
-                                <input name="uang_masuk" type="text" class="form-control @error('uang_masuk') is-invalid @enderror" value="{{$uang->uang_masuk}}">
-                                @error('uang_masuk')<div class="invalid-feedback">{{$message}}</div> @enderror
-                            </div>
-                            <div class="form-group">
-                                <label>Uang Keluar</label>
-                                <input name="uang_keluar" type="text" class="form-control @error('uang_keluar') is-invalid @enderror" value="{{$uang->uang_keluar}}">
-                                @error('uang_keluar')<div class="invalid-feedback">{{$message}}</div> @enderror
-                            </div>
-                            <div class="form-group">
-                                <label>Keterangan</label>
-                                <input name="keterangan" type="text" class="form-control @error('keterangan') is-invalid @enderror" value="{{$uang->keterangan}}">
-                                @error('keterangan')<div class="invalid-feedback">{{$message}}</div> @enderror
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-12">
-                                    <button class="btn btn-success">SIMPAN</button>
-                                </div>
-                            </div>
-                        </form>
+                    <div class="col--md-7">
+                    @if (session('status'))
+					<div class="alert alert-success">
+						{{ session('status')}}
+					</div>
+					@endif
+                    <a class="btn btn-primary float-right" href="/create_keuangan" role="button">Catat Keuangan</a>
+                </div>
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Uang Masuk</th>
+                                    <th>Uang Keluar</th>
+                                    <th>Keterangan</th>
+                                    <th>Saldo</th>
+                                    <th>Diinput</th>
+                                    <th>Diubah</th>
+                                    <th>Aksi</th>
+                                </tr>
+                                <tr>
+                                    <?php $no = 0; ?>
+                                    @foreach($uang as $duit)
+                                    <?php $no++; ?>
+                                <tr>
+                                    <td>{{$no}}</td>
+                                    <td>{{$duit->uang_masuk}}</td>
+                                    <td>{{$duit->uang_keluar}}</td>
+                                    <td>{{$duit->keterangan}}</td>
+                                    <td>{{$duit->saldo}}</td>
+                                    <td>{{$duit->created_at}}</td>
+                                    <td>{{$duit->updated_at}}</td>
+                                    <td>
+                                    <a href="/edituang/{{$duit->id}}/edit" class="btn btn-info">
+                                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                        </a>
+                                        <a href="/hapus/{{$duit->id}}/destroy" class="btn btn-danger" onclick="return confirm('Yakin mau dihapus ?')">
+                                            <i class="fa fa-trash" aria-hidden="true"></i>
+                                        </a>
+                                        </td>
+                                </tr>
+                                @endforeach
+                                <tr>
+                                <td colspan="4">Jumlah Saldo</td>
+                                <td>{{ $saldo }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>

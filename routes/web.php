@@ -18,7 +18,10 @@ Route::get('/', function () {
 });
 Route::get('/home', 'KeuanganController@home');
 Route::get('/profil', 'KeuanganController@profil');
-Route::get('/editprofil', 'KeuanganController@edit');
-Route::post('/editprofil', 'KeuanganController@update');
-Route::get('/agenda', 'KeuanganController@agenda');
-Route::get('/rapor', 'KeuanganController@rapor');
+Route::get('/lihatdata', 'KeuanganController@lihatdata');
+Route::get('/lihatsaldo', 'KeuanganController@saldo');
+Route::get('/create_keuangan', 'KeuanganController@lihattambah');
+Route::post('/create_keuangan', 'KeuanganController@tambah');
+Route::get('/edituang/{id}/edit', 'KeuanganController@edit');
+Route::post('/edituang/update/{id}', 'KeuanganController@update');
+Route::get('/hapus/{id}/destroy', 'KeuanganController@destroy');

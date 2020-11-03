@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="images/Logo-UKS.png">
-    <title>Halaman Wali Murid</title>
+    <title>Pemasukan-Pengeluaran</title>
     <!-- Bootstrap Core CSS -->
     <link href="../assets/node_modules/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../assets/node_modules/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
@@ -41,7 +41,7 @@
     <div class="preloader">
         <div class="loader">
             <div class="loader__figure"></div>
-            <p class="loader__label">SI-UKS</p>
+            <p class="loader__label"></p>
         </div>
     </div>
     <!-- ============================================================== -->
@@ -117,11 +117,7 @@
                     <ul id="sidebarnav">
                         <li> <a class="waves-effect waves-dark" href="/home" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="/profil" aria-expanded="false"><i class="fa fa-user-circle-o"></i><span class="hide-menu">Profil</span></a>
-                        </li>
-                        <li> <a class="waves-effect waves-dark" href="/agenda" aria-expanded="false"><i class="fa fa-table"></i><span class="hide-menu">Agenda Kegiatan</span></a>
-                        </li>
-                        <li> <a class="waves-effect waves-dark" href="/rapor" aria-expanded="false"><i class="fa fa-list"></i><span class="hide-menu">Rapor Kesehatan</span></a>
+                        <li> <a class="waves-effect waves-dark" href="lihatdata" aria-expanded="false"><i class="fa fa-list"></i><span class="hide-menu">Pemasukan Pengeluaran</span></a>
                         </li>
                         <li> <a class="waves-effect waves-dark" href="/logout" aria-expanded="false"><i class="fa fa-sign-out"></i><span class="hide-menu">Keluar</span></a>
                         </li>
@@ -138,7 +134,7 @@
         <!-- End Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
 
-        @yield('wali_murid.content')
+        @yield('keuangan.content')
 
         <!-- ============================================================== -->
         <!-- All Jquery -->
