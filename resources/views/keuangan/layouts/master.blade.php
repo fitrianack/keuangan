@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="images/Logo-UKS.png">
-    <title>Halaman Wali Murid</title>
+    <title>Laporan Keuangan</title>
     <!-- Bootstrap Core CSS -->
     <link href="../assets/node_modules/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../assets/node_modules/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
@@ -67,10 +67,10 @@
                         </b>
                         <!--End Logo icon -->
                         <!-- Logo text --><span>
-                         <!-- dark Logo text -->
-                         <!-- <img src="../assets/images/logo-text.png" alt="homepage" class="dark-logo" /> -->
-                         <!-- Light Logo text -->    
-                         <!-- <img src="../assets/images/logo-light-text.png" class="light-logo" alt="homepage" /></span> </a> -->
+                            <!-- dark Logo text -->
+                            <!-- <img src="../assets/images/logo-text.png" alt="homepage" class="dark-logo" /> -->
+                            <!-- Light Logo text -->
+                            <!-- <img src="../assets/images/logo-light-text.png" class="light-logo" alt="homepage" /></span> </a> -->
                 </div>
                 <!-- ============================================================== -->
                 <!-- End Logo -->
@@ -115,15 +115,15 @@
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
-                        <li> <a class="waves-effect waves-dark" href="/home" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard</span></a>
+                        <li> <a class="waves-effect waves-dark" href="/" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="/profil" aria-expanded="false"><i class="fa fa-user-circle-o"></i><span class="hide-menu">Profil</span></a>
+                        <li> <a class="waves-effect waves-dark" href="/" aria-expanded="false"><i class="fa fa-user-circle-o"></i><span class="hide-menu">Data Keuangan</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="/agenda" aria-expanded="false"><i class="fa fa-table"></i><span class="hide-menu">Agenda Kegiatan</span></a>
+                        <li> <a class="waves-effect waves-dark" href="/" aria-expanded="false"><i class="fa fa-table"></i><span class="hide-menu">Uang Pemasukan</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="/rapor" aria-expanded="false"><i class="fa fa-list"></i><span class="hide-menu">Rapor Kesehatan</span></a>
+                        <li> <a class="waves-effect waves-dark" href="/" aria-expanded="false"><i class="fa fa-list"></i><span class="hide-menu">Uang Pengeluaran</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="/logout" aria-expanded="false"><i class="fa fa-sign-out"></i><span class="hide-menu">Keluar</span></a>
+                        <li> <a class="waves-effect waves-dark" href="/" aria-expanded="false"><i class="fa fa-sign-out"></i><span class="hide-menu">Keluar</span></a>
                         </li>
                     </ul>
                     <div class="text-center m-t-30">
@@ -138,7 +138,7 @@
         <!-- End Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
 
-        @yield('wali_murid.content')
+        @yield('keuangan.content')
 
         <!-- ============================================================== -->
         <!-- All Jquery -->

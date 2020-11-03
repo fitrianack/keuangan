@@ -14,7 +14,7 @@ class CreateKeuangansTable extends Migration
     public function up()
     {
         Schema::create('keuangans', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->double('uang_masuk', 12, 2);
             $table->double('uang_keluar', 12, 2);
             $table->double('saldo', 12, 2);

@@ -12,11 +12,11 @@
         <!-- Bread crumb and right sidebar toggle -->
         <!-- ============================================================== -->
         <div class="row page-titles">
-            <div class="col-md-5 align-self-center">
-                <h3 class="text-themecolor">Halaman Edit Data Uang</h3>
+            <div class="col-md-12 align-self-center">
+                <h3 class="text-themecolor">Halaman Laporan Keuangan</h3>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                    <li class="breadcrumb-item active">Halaman Edit Uang</li>
+                    <li class="breadcrumb-item active">Halaman Data Keuangan</li>
                 </ol>
             </div>
             <div class="col-md-7 align-self-center">
@@ -30,40 +30,56 @@
         <!-- Start Page Content -->
         <!-- ============================================================== -->
         <!-- Row -->
+        <a href="{{url ('/adduang')}}" class="btn btn-primary">Tambah Data Keuangan</a>
         <div class="row">
             <!-- Column -->
             <div class="col-lg-8 col-xlg-9 col-md-7">
                 <div class="card">
                     <!-- Tab panes -->
                     <div class="card-body">
-                        <form class="form-horizontal form-material" method="post" action="/edituang/update/{{$uangg->id}}">
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <th style="color: black;">No</th>
+                                    <th style="color: black;">Uang Masuk</th>
+                                    <th style="color: black;">Uang Keluar</th>
+                                    <th style="color: black;">Keterangan</th>
+                                    <th style="color: black;">Saldo</th>
+                                    <th style="color: black;">Diinput</th>
+                                    <th style="color: black;">Terakhir Diubah</th>
+                                    <th style="color: black;">Aksi</th>
+                                </tr>
+                                <tr>
+                                    <?php $no = 0; ?>
+                                    @foreach($uang as $duit)
+                                    <?php $no++; ?>
+                                <tr>
+                                    <td>{{$no}}</td>
+                                    <td>{{$duit->uang_masuk}}</td>
+                                    <td>{{$duit->uang_keluar}}</td>
+                                    <td>{{$duit->keterangan}}</td>
+                                    <td>{{$duit->saldo}}</td>
+                                    <td>{{$duit->updated_at}}</td>
+                                    <td>{{$duit->created_at}}</td>
+                                    <td>
+                                        <a href="/edituang/{{$duit->id}}/edit" class="btn btn-info">
+                                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                        </a>
 
-                            {{csrf_field()}}
+                                        <a href="/hapus/{{$duit->id}}/destroy" class="btn btn-danger" onclick="return confirm('Yakin mau dihapus ?')">
+                                            <i class="fa fa-trash" aria-hidden="true"></i>
+                                        </a>
+                                    </td>
+                                    @endforeach
+                                </tr>
+                                <tr>
+                                    <td colspan="4">Total Saldo</td>
+                                    <td>{{ $saldo }}</td>
+                                </tr>
 
-                            <div class="form-group">
-                                <label>Uang Masuk</label>
-                                <input name="uang_masuk" type="text" class="form-control @error('uang_masuk') is-invalid @enderror" value="{{$uangg->uang_masuk}}">
-                                @error('uang_masuk')<div class="invalid-feedback">{{$message}}</div> @enderror
-                            </div>
 
-                            <div class="form-group">
-                                <label>Uang Keluar</label>
-                                <input name="uang_keluar" type="text" class="form-control @error('uang_keluar') is-invalid @enderror" value="{{$uangg->uang_keluar}}">
-                                @error('uang_keluar')<div class="invalid-feedback">{{$message}}</div> @enderror
-                            </div>
-
-                            <div class="form-group">
-                                <label>Keterangan</label>
-                                <input name="keterangan" type="text" class="form-control @error('keterangan') is-invalid @enderror" value="{{$uangg->keterangan}}">
-                                @error('keterangan')<div class="invalid-feedback">{{$message}}</div> @enderror
-                            </div>
-
-                            <div class="form-group">
-                                <div class="col-sm-12">
-                                    <button class="btn btn-success">SIMPAN</button>
-                                </div>
-                            </div>
-                        </form>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
